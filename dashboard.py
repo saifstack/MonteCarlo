@@ -320,11 +320,18 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
 
     # A handful of individual paths (visual texture)
     sample_idx = np.random.default_rng(99).integers(0, result.config.n_paths, size=60)
-    for idx in sample_idx:
+    path_colors = [
+        "rgba(0,229,255,0.18)",
+        "rgba(255,107,53,0.18)",
+        "rgba(127,255,110,0.18)",
+        "rgba(255,210,0,0.18)",
+        "rgba(200,100,255,0.18)",
+    ]
+    for i, idx in enumerate(sample_idx):
         fig.add_trace(go.Scatter(
             x=days_axis, y=result.paths[:, idx],
             mode="lines",
-            line=dict(color="rgba(0,229,255,0.07)", width=0.6),
+            line=dict(color=path_colors[i % len(path_colors)], width=0.8),
             showlegend=False, hoverinfo="skip",
         ))
 
@@ -380,7 +387,6 @@ with col_hist:
         x=fp,
         nbinsx=80,
         marker=dict(
-            color=np.where(fp >= start_price, GAIN, LOSS).tolist(),   # won't work per-bin directly
             color=ACCENT,
             opacity=0.7,
             line=dict(color="#080c12", width=0.3),
@@ -440,9 +446,10 @@ with col_cdf:
     fig_cdf.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Cumulative Return Probability", font=dict(size=12, color="#fff")),
-        xaxis=dict(**PLOTLY_LAYOUT["xaxis"], tickformat=".0%"),
-        yaxis=dict(**PLOTLY_LAYOUT["yaxis"], tickformat=".0%"),
-        xaxis_title="Return", yaxis_title="Cumulative Probability",
+        xaxis_tickformat=".0%",
+        yaxis_tickformat=".0%",
+        xaxis_title="Return",
+        yaxis_title="Cumulative Probability",
         height=340,
     )
     st.plotly_chart(fig_cdf, use_container_width=True)
@@ -492,7 +499,7 @@ with col_prob:
         **PLOTLY_LAYOUT,
         title=dict(text="Probability of Being Above Entry Price", font=dict(size=12, color="#fff")),
         xaxis_title="Trading Day",
-        yaxis=dict(**PLOTLY_LAYOUT["yaxis"], tickformat=".0%"),
+        yaxis_tickformat=".0%",
         yaxis_title="Probability",
         height=300,
     )
