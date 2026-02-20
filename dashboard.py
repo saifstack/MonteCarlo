@@ -36,9 +36,9 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap');
 
 :root {
-    --bg:        #080c12;
-    --surface:   #0e1520;
-    --border:    #1c2a3a;
+--bg:        #000000;
+    --surface:   #0a0a0a;
+    --border:    #222222;
     --accent:    #00e5ff;
     --accent2:   #ff6b35;
     --accent3:   #7fff6e;
@@ -89,12 +89,12 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* ── Hero title ── */
 .hero {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.6rem;
-    font-weight: 800;
-    line-height: 1.1;
-    color: #fff;
-    letter-spacing: -0.02em;
+    font-family: Arial, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    letter-spacing: 0em;
 }
 .hero span { color: var(--accent); }
 
@@ -219,8 +219,8 @@ with st.sidebar:
 col_title, col_badges = st.columns([3, 2])
 with col_title:
     st.markdown(
-        f'<div class="hero">Monte <span>Carlo</span><br>Simulator</div>'
-        f'<div class="subtitle">Geometric Brownian Motion · Equity Path Forecasting</div>',
+    f'<div class="hero">Monte Carlo Simulation</div>'
+    f'<div class="subtitle">Geometric Brownian Motion · Equity Path Forecasting</div>',
         unsafe_allow_html=True
     )
 with col_badges:
@@ -331,7 +331,7 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
         fig.add_trace(go.Scatter(
             x=days_axis, y=result.paths[:, idx],
             mode="lines",
-            line=dict(color=path_colors[i % len(path_colors)], width=0.8),
+            line=dict(color="rgba(255,255,255,0.85)", width=1.2),
             showlegend=False, hoverinfo="skip",
         ))
 
