@@ -128,7 +128,7 @@ html, body, [data-testid="stAppViewContainer"] {
 div[data-baseweb="select"] { background: var(--surface) !important; }
 .stNumberInput input, .stTextInput input { background: var(--surface) !important; border-color: var(--border) !important; color: var(--text) !important; }
 hr { border-color: var(--border) !important; }
-.block-container { padding-top: 2rem; padding-bottom: 4rem; }
+.block-container { padding-top: 4rem; padding-bottom: 4rem; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
