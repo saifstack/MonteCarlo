@@ -90,7 +90,7 @@ html, body, [data-testid="stAppViewContainer"] {
 /* ── Hero title ── */
 .hero {
     font-family: Arial, sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 700;
     line-height: 1.2;
     color: #ffffff;
