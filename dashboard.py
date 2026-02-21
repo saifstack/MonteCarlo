@@ -78,7 +78,7 @@ html, body, [data-testid="stAppViewContainer"] {
 /* ── Section headers ── */
 .section-head {
     font-family: 'Arial Narrow', Arial, sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--muted);
@@ -90,7 +90,7 @@ html, body, [data-testid="stAppViewContainer"] {
 /* ── Hero title ── */
 .hero {
     font-family: Arial, sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
     color: #ffffff;
