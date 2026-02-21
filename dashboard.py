@@ -77,7 +77,7 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* ── Section headers ── */
 .section-head {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Letter Gothic Std', 'Courier New', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
