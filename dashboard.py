@@ -449,9 +449,10 @@ with col_cdf:
     fig_cdf.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Cumulative Return Probability", font=dict(size=12, color="#fff")),
-        xaxis=dict(**PLOTLY_LAYOUT["xaxis"], tickformat=".0%"),
-        yaxis=dict(**PLOTLY_LAYOUT["yaxis"], tickformat=".0%"),
-        xaxis_title="Return", yaxis_title="Cumulative Probability",
+        xaxis_tickformat=".0%",
+        yaxis_tickformat=".0%",
+        xaxis_title="Return",
+        yaxis_title="Cumulative Probability",
         height=340,
     )
     st.plotly_chart(fig_cdf, use_container_width=True)
