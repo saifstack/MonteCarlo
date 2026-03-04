@@ -90,12 +90,13 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* ── Hero title ── */
 .hero {
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.6rem;
+    font-family: Arial, sans-serif;
+    font-size: 1.8rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.4;
     color: var(--text);
-    letter-spacing: 0em;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
 }
 .hero span { color: var(--accent); }
 
@@ -323,12 +324,13 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
 
     # A handful of individual paths (visual texture)
     sample_idx = np.random.default_rng(99).integers(0, result.config.n_paths, size=60)
-    path_colors = [
-        "rgba(204,120,92,0.85)",
-        "rgba(212,165,116,0.85)",
-        "rgba(143,171,110,0.85)",
-        "rgba(180,150,100,0.85)",
-        "rgba(160,130,110,0.85)",
+    ppath_colors = [
+        "rgba(255,50,50,0.85)",
+        "rgba(50,120,255,0.85)",
+        "rgba(0,220,220,0.85)",
+        "rgba(255,220,0,0.85)",
+        "rgba(255,80,180,0.85)",
+        "rgba(80,220,80,0.85)",
     ]
     for i, idx in enumerate(sample_idx):
         fig.add_trace(go.Scatter(
@@ -433,14 +435,14 @@ with col_cdf:
 
     fig_cdf.add_trace(go.Scatter(
         x=sorted_r[loss_mask], y=cdf[loss_mask],
-        mode="lines", line=dict(color=LOSS, width=2),
-        fill="tozeroy", fillcolor=f"rgba(194,107,90,0.12)",
+        mode="lines", line=dict(color="#ff3232", width=2),
+        fill="tozeroy", fillcolor="rgba(255,50,50,0.10)",
         name="Loss Zone",
     ))
     fig_cdf.add_trace(go.Scatter(
         x=sorted_r[profit_mask], y=cdf[profit_mask],
-        mode="lines", line=dict(color=GAIN, width=2),
-        fill="tozeroy", fillcolor=f"rgba(143,171,110,0.10)",
+        mode="lines", line=dict(color="#32cd32", width=2),
+        fill="tozeroy", fillcolor="rgba(50,205,50,0.10)",
         name="Profit Zone",
     ))
 
