@@ -502,7 +502,7 @@ with col_prob:
         **PLOTLY_LAYOUT,
         title=dict(text="Probability of Being Above Entry Price", font=dict(size=12, color="#fff")),
         xaxis_title="Trading Day",
-        yaxis=dict(**PLOTLY_LAYOUT["yaxis"], tickformat=".0%"),
+        yaxis_tickformat=".0%",
         yaxis_title="Probability",
         height=300,
     )
