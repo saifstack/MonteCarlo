@@ -33,25 +33,25 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
 
 :root {
---bg:        #000000;
-    --surface:   #0a0a0a;
-    --border:    #222222;
-    --accent:    #00e5ff;
-    --accent2:   #ff6b35;
-    --accent3:   #7fff6e;
-    --text:      #c8d8e8;
-    --muted:     #4a6070;
-    --gain:      #00e676;
-    --loss:      #ff1744;
+    --bg:        #1a1714;
+    --surface:   #211e1a;
+    --border:    #333028;
+    --accent:    #cc785c;
+    --accent2:   #d4a574;
+    --accent3:   #8fab6e;
+    --text:      #e8e0d5;
+    --muted:     #7a7060;
+    --gain:      #8fab6e;
+    --loss:      #c26b5a;
 }
 
 html, body, [data-testid="stAppViewContainer"] {
     background-color: var(--bg) !important;
     color: var(--text) !important;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 /* ── Sidebar ── */
@@ -71,14 +71,15 @@ html, body, [data-testid="stAppViewContainer"] {
     border-radius: 4px;
     padding: 16px 20px;
 }
-[data-testid="stMetricValue"]  { font-family: 'Syne', sans-serif; font-size: 1.6rem !important; color: var(--accent) !important; }
-[data-testid="stMetricLabel"]  { font-size: 0.65rem !important; letter-spacing: 0.12em; color: var(--muted) !important; text-transform: uppercase; }
+[data-testid="stMetricValue"]  { font-family: 'Playfair Display', serif; font-size: 1.6rem !important; color: var(--accent) !important; }
+[data-testid="stMetricLabel"]  { font-size: 0.65rem !important; letter-spacing: 0.12em; color: var(--muted) !important; text-transform: uppercase; font-family: 'Source Sans 3', sans-serif; }
 [data-testid="stMetricDelta"]  { font-size: 0.75rem !important; }
 
 /* ── Section headers ── */
 .section-head {
     font-family: 'Arial Narrow', Arial, sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--muted);
@@ -89,11 +90,11 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* ── Hero title ── */
 .hero {
-    font-family: Arial, sans-serif;
-    font-size: 1.9rem;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.2;
-    color: #ffffff;
+    color: var(--text);
     letter-spacing: 0em;
 }
 .hero span { color: var(--accent); }
@@ -104,24 +105,26 @@ html, body, [data-testid="stAppViewContainer"] {
     color: var(--muted);
     margin-top: 4px;
     text-transform: uppercase;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 /* ── Tag badge ── */
 .badge {
     display: inline-block;
-    background: rgba(0,229,255,0.08);
-    border: 1px solid rgba(0,229,255,0.25);
+    background: rgba(204,120,92,0.10);
+    border: 1px solid rgba(204,120,92,0.30);
     color: var(--accent);
     font-size: 0.6rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 3px 10px;
-    border-radius: 2px;
+    border-radius: 3px;
     margin-right: 6px;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 /* ── Plotly chart containers ── */
-.js-plotly-plot { border-radius: 4px; }
+.js-plotly-plot { border-radius: 6px; }
 
 /* ── Streamlit overrides ── */
 .stSelectbox > div > div { background: var(--surface) !important; border-color: var(--border) !important; }
@@ -143,20 +146,20 @@ hr { border-color: var(--border) !important; }
 # ─────────────────────────────────────────────
 
 PLOTLY_LAYOUT = dict(
-    paper_bgcolor="#080c12",
-    plot_bgcolor="#080c12",
-    font=dict(family="IBM Plex Mono", color="#c8d8e8", size=11),
+    paper_bgcolor="#1a1714",
+    plot_bgcolor="#1a1714",
+    font=dict(family="Source Sans 3, sans-serif", color="#e8e0d5", size=11),
     margin=dict(l=50, r=30, t=50, b=50),
-    xaxis=dict(gridcolor="#1c2a3a", linecolor="#1c2a3a", zerolinecolor="#1c2a3a"),
-    yaxis=dict(gridcolor="#1c2a3a", linecolor="#1c2a3a", zerolinecolor="#1c2a3a"),
-    legend=dict(bgcolor="rgba(14,21,32,0.8)", bordercolor="#1c2a3a", borderwidth=1),
+    xaxis=dict(gridcolor="#333028", linecolor="#333028", zerolinecolor="#333028"),
+    yaxis=dict(gridcolor="#333028", linecolor="#333028", zerolinecolor="#333028"),
+    legend=dict(bgcolor="rgba(33,30,26,0.8)", bordercolor="#333028", borderwidth=1),
 )
 
-ACCENT   = "#00e5ff"
-ACCENT2  = "#ff6b35"
-ACCENT3  = "#7fff6e"
-GAIN     = "#00e676"
-LOSS     = "#ff1744"
+ACCENT   = "#cc785c"
+ACCENT2  = "#d4a574"
+ACCENT3  = "#8fab6e"
+GAIN     = "#8fab6e"
+LOSS     = "#c26b5a"
 
 
 # ─────────────────────────────────────────────
@@ -219,8 +222,8 @@ with st.sidebar:
 col_title, col_badges = st.columns([3, 2])
 with col_title:
     st.markdown(
-    f'<div class="hero">Monte Carlo Simulation</div>'
-    f'<div class="subtitle">Geometric Brownian Motion · Equity Path Forecasting</div>',
+        f'<div class="hero">Monte <span>Carlo</span><br>Simulator</div>'
+        f'<div class="subtitle">Geometric Brownian Motion · Equity Path Forecasting</div>',
         unsafe_allow_html=True
     )
 with col_badges:
@@ -300,9 +303,9 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
 
     # Shaded percentile bands
     bands = [
-        (5,  95, "rgba(0,229,255,0.05)", "5–95th"),
-        (15, 85, "rgba(0,229,255,0.08)", "15–85th"),
-        (25, 75, "rgba(0,229,255,0.13)", "25–75th"),
+        (5,  95, "rgba(204,120,92,0.06)", "5–95th"),
+        (15, 85, "rgba(204,120,92,0.10)", "15–85th"),
+        (25, 75, "rgba(204,120,92,0.16)", "25–75th"),
     ]
     for lo, hi, fill_color, label in bands:
         lower, upper = percentile_band(result, lo, hi)
@@ -321,17 +324,17 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
     # A handful of individual paths (visual texture)
     sample_idx = np.random.default_rng(99).integers(0, result.config.n_paths, size=60)
     path_colors = [
-        "rgba(0,229,255,0.18)",
-        "rgba(255,107,53,0.18)",
-        "rgba(127,255,110,0.18)",
-        "rgba(255,210,0,0.18)",
-        "rgba(200,100,255,0.18)",
+        "rgba(204,120,92,0.85)",
+        "rgba(212,165,116,0.85)",
+        "rgba(143,171,110,0.85)",
+        "rgba(180,150,100,0.85)",
+        "rgba(160,130,110,0.85)",
     ]
     for i, idx in enumerate(sample_idx):
         fig.add_trace(go.Scatter(
             x=days_axis, y=result.paths[:, idx],
             mode="lines",
-            line=dict(color="rgba(255,255,255,0.85)", width=1.2),
+            line=dict(color=path_colors[i % len(path_colors)], width=1.2),
             showlegend=False, hoverinfo="skip",
         ))
 
@@ -431,13 +434,13 @@ with col_cdf:
     fig_cdf.add_trace(go.Scatter(
         x=sorted_r[loss_mask], y=cdf[loss_mask],
         mode="lines", line=dict(color=LOSS, width=2),
-        fill="tozeroy", fillcolor=f"rgba(255,23,68,0.10)",
+        fill="tozeroy", fillcolor=f"rgba(194,107,90,0.12)",
         name="Loss Zone",
     ))
     fig_cdf.add_trace(go.Scatter(
         x=sorted_r[profit_mask], y=cdf[profit_mask],
         mode="lines", line=dict(color=GAIN, width=2),
-        fill="tozeroy", fillcolor=f"rgba(0,230,118,0.08)",
+        fill="tozeroy", fillcolor=f"rgba(143,171,110,0.10)",
         name="Profit Zone",
     ))
 
@@ -446,10 +449,9 @@ with col_cdf:
     fig_cdf.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Cumulative Return Probability", font=dict(size=12, color="#fff")),
-        xaxis_tickformat=".0%",
-        yaxis_tickformat=".0%",
-        xaxis_title="Return",
-        yaxis_title="Cumulative Probability",
+        xaxis=dict(**PLOTLY_LAYOUT["xaxis"], tickformat=".0%"),
+        yaxis=dict(**PLOTLY_LAYOUT["yaxis"], tickformat=".0%"),
+        xaxis_title="Return", yaxis_title="Cumulative Probability",
         height=340,
     )
     st.plotly_chart(fig_cdf, use_container_width=True)
@@ -472,7 +474,7 @@ with col_vol:
         x=days_axis, y=cross_sectional_std,
         mode="lines", name="Cross-sectional Std",
         line=dict(color=ACCENT2, width=2),
-        fill="tozeroy", fillcolor="rgba(255,107,53,0.08)",
+        fill="tozeroy", fillcolor="rgba(212,165,116,0.10)",
     ))
     fig_vol.update_layout(
         **PLOTLY_LAYOUT,
@@ -491,7 +493,7 @@ with col_prob:
         x=days_axis, y=prob_above,
         mode="lines", name="P(price > entry)",
         line=dict(color=GAIN, width=2),
-        fill="tozeroy", fillcolor="rgba(0,230,118,0.08)",
+        fill="tozeroy", fillcolor="rgba(143,171,110,0.10)",
     ))
     fig_prob.add_hline(y=0.5, line=dict(color="#4a6070", width=1, dash="dash"))
 
@@ -499,7 +501,7 @@ with col_prob:
         **PLOTLY_LAYOUT,
         title=dict(text="Probability of Being Above Entry Price", font=dict(size=12, color="#fff")),
         xaxis_title="Trading Day",
-        yaxis_tickformat=".0%",
+        yaxis=dict(**PLOTLY_LAYOUT["yaxis"], tickformat=".0%"),
         yaxis_title="Probability",
         height=300,
     )
