@@ -19,8 +19,7 @@ class SimulationConfig:
     sigma: float       # annualised volatility (e.g. 0.20 → 20 %)
     days: int          # trading days to simulate
     n_paths: int       # number of Monte Carlo paths
-    seed: int | None = 42
-
+    seed: int = 42
 
 @dataclass
 class SimulationResult:
