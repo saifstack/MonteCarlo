@@ -332,6 +332,14 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
         "rgba(255,80,180,0.85)",
         "rgba(80,220,80,0.85)",
     ]
+    path_colors = [
+        "rgba(255,50,50,0.85)",
+        "rgba(50,120,255,0.85)",
+        "rgba(0,220,220,0.85)",
+        "rgba(255,220,0,0.85)",
+        "rgba(255,80,180,0.85)",
+        "rgba(80,220,80,0.85)",
+    ]
     for i, idx in enumerate(sample_idx):
         fig.add_trace(go.Scatter(
             x=days_axis, y=result.paths[:, idx],
@@ -339,7 +347,6 @@ def build_fan_chart(result: SimulationResult) -> go.Figure:
             line=dict(color=path_colors[i % len(path_colors)], width=1.2),
             showlegend=False, hoverinfo="skip",
         ))
-
     # Median and mean
     median_path = np.median(result.paths, axis=1)
     mean_path   = np.mean(result.paths,   axis=1)
